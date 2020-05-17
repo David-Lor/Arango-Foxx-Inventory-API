@@ -1,0 +1,7 @@
+{
+  "name": "arango_foxx-entities_api",
+  "version": "0.0.1",
+  "dependencies": {
+    "joi": "latest"
+  }
+}

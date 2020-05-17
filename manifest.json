@@ -1,0 +1,14 @@
+{
+    "name": "inventory-api",
+    "description": "CRUD REST API to store generic items hierarchically or container-based",
+    "author": "David-Lor",
+    "version": "0.0.1",
+    "license": "ISC License",
+    "engines": {
+        "arangodb": "^3.6.3"
+    },
+    "main": "index.js",
+    "scripts": {
+        "setup": "scripts/setup.js"
+    }
+}
