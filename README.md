@@ -18,6 +18,15 @@ Stored objects are described as "entities", and can act as containers (parents) 
 }
 ```
 
+## Installing
+
+- Install ArangoDB
+- Go to ArangoDB WebUI (like http://localhost:8529)
+- Login and enter into a database
+- Go to "Services" and Add service
+- Choose the GitHub tab
+- Set Repository to `David-Lor/Arango-Foxx-Inventory-API` and Version to `develop`
+
 ## Changelog
 
 - 0.0.1: Initial version with CRUD endpoints, without hierarchy/relationships
