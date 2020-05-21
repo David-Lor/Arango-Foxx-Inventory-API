@@ -17,8 +17,13 @@ jobs:
                 apk add --no-cache bash &&
                 wget https://github.com/vishnubob/wait-for-it/raw/master/wait-for-it.sh &&
                 chmod +x wait-for-it.sh
+            - name: Start ArangoDB
+              run: |-
+                /entrypoint.sh arangodb &
+                arangodb --starter.data-dir=./db2 --starter.join 127.0.0.1 &
+                arangodb --starter.data-dir=./db3 --starter.join 127.0.0.1 &
             - name: Wait for ArangoDB to start
-              run: ./wait-for-it.sh localhost:8529
+              run: ./wait-for-it.sh localhost:8529 --timeout=30
             - name: Install Foxx microservice
               run: foxx install /inventory
             - name: Test status endpoint
