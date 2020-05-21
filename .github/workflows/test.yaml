@@ -11,6 +11,14 @@ jobs:
             - uses: actions/checkout@master
               with:
                 fetch-depth: 1
+            - name: Install wait-for-it
+              run: |-
+                apk update --no-cache &&
+                apk add --no-cache bash &&
+                wget https://github.com/vishnubob/wait-for-it/raw/master/wait-for-it.sh &&
+                chmod +x wait-for-it.sh
+            - name: Wait for ArangoDB to start
+              run: ./wait-for-it.sh localhost:8529
             - name: Install Foxx microservice
               run: foxx install /inventory
             - name: Test status endpoint
