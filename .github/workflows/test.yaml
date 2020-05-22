@@ -22,8 +22,10 @@ jobs:
                 /entrypoint.sh arangodb &
                 arangodb --starter.data-dir=./db2 --starter.join 127.0.0.1 &
                 arangodb --starter.data-dir=./db3 --starter.join 127.0.0.1 &
+            - name: Run npm install
+              run: npm install
             - name: Wait for ArangoDB to start
-              run: ./wait-for-it.sh localhost:8529 --timeout=30
+              run: ./wait-for-it.sh localhost:8529 --timeout=60
             - name: Install Foxx microservice
               run: foxx install /inventory
             - name: Test status endpoint

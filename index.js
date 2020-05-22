@@ -4,7 +4,7 @@
 
 "use strict";
 const createRouter = require("@arangodb/foxx/router");
-const { setRoutes } = require("./scripts/routes.js");
+const { setRoutes } = require("./src/routes.js");
 
 const router = createRouter();
 setRoutes(router);

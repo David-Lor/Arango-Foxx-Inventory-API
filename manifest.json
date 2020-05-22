@@ -9,7 +9,7 @@
     },
     "main": "index.js",
     "scripts": {
-        "setup": "scripts/setup.js"
+        "setup": "src/setup.js"
     },
     "tests": [
         "tests/*.test.js"

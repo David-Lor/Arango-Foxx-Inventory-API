@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "devDependencies": {
     "@types/arangodb": "^3.5.6",
+    "@types/chai": "^4.2.11",
+    "@types/faker": "^4.1.12",
     "@types/joi": "^14.3.4",
-    "@types/chai": "^4.2.11"
+    "@types/lodash": "^4.14.152",
+    "faker": "^4.1.0"
   }
 }
