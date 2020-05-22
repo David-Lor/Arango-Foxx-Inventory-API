@@ -1,7 +1,9 @@
 {
   "name": "arango_foxx-entities_api",
   "version": "0.0.1",
-  "dependencies": {
-    "joi": "latest"
+  "devDependencies": {
+    "@types/arangodb": "^3.5.6",
+    "@types/joi": "^14.3.4",
+    "@types/chai": "^4.2.11"
   }
 }

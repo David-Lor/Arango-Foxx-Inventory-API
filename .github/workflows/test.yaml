@@ -28,3 +28,5 @@ jobs:
               run: foxx install /inventory
             - name: Test status endpoint
               run: wget --quiet --tries=1 --spider http://localhost:8529/_db/_system/inventory/status
+            - name: Run microservice tests
+              run: foxx test /inventory
