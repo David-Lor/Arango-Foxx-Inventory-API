@@ -1,21 +1,23 @@
 "use strict";
-const faker = require("faker");
 const lodash = require("lodash");
 const { expect } = require("chai");
 const request = require("@arangodb/request");
 const { getEntityCreate, stringify } = require("./utils.js");
+const { getEntity } = require("../src/database.js");
 const { baseUrl } = module.context;
 
-describe('entity create api test', () => {
+describe('entity create', () => {
   it('should create the entity', () => {
     const entityCreate = getEntityCreate();
-    entityCreate[faker.random.word()] = faker.random.word();
 
     const response = request.post(baseUrl + "/entities", { body: entityCreate, json: true });
     expect(response.statusCode).to.be.equal(201, stringify({ response }));
 
     const responseAsCreate = lodash.omit(response.json, ["id", "created", "updated"]);
     expect(responseAsCreate).to.be.deep.equal(entityCreate, stringify({ result: responseAsCreate, expected: entityCreate }));
+
+    const entityRead = getEntity(response.json.id);
+    expect(response.json).to.be.deep.equal(entityRead, stringify({ result: response.json, expected: entityRead }));
   });
 
   it('should fail to create an entity with no name', () => {
